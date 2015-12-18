@@ -8,6 +8,7 @@ class Upload{
     private $imageFileType  = null;
     private $btnName        = null;
     private $errors         = array();
+    private $fileName       = null;
 
     function __construct($btnName, $uploadFolder) {
         // Where to upload file
@@ -67,6 +68,7 @@ class Upload{
 
         if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], "{$this->target_dir}/{$new}"))
         {
+            $this->fileName = $new;
             return true;
         }else{
             return false;
@@ -97,6 +99,10 @@ class Upload{
 
     public function errors(){
         return $this->errors;
+    }
+
+    public function getFileName(){
+        return $this->fileName;
     }
 
 }

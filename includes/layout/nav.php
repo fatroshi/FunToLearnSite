@@ -12,8 +12,8 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">Create Category</a></li>
-                <li><a href="#contact">Add items</a></li>
+                <li><a href="category.php">Create Category</a></li>
+                <li><a href="items.php">Add items</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

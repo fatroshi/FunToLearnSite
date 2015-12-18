@@ -9,6 +9,7 @@
 
     $controller = new Controller();
 
+    $controller->remove(1,"categories");
 
     if(isset($_POST['uploadBtn'])){
 

@@ -1,6 +1,4 @@
-
 <?php
-
 include_once "includes/DB/Database.php";
 include_once "includes/DB/User.php";
 include_once "includes/DB/Category.php";
@@ -33,7 +31,27 @@ class Controller {
         $this->category->addCategory($categoryName);
     }
 
+    public function addItem($img,$itemName,$categoryId){
+        $this->category->addItem($img,$itemName,$categoryId);
+    }
 
+    public function delete($id, $table){
+        $this->database->delete($id,$table);
+    }
+
+    public function redirect($newURL){
+        header("Location: " . $newURL);
+        die();
+    }
+
+    public function insertId(){
+        // Get last inserted id
+        return $this->database->getConnection()->insert_id;
+    }
+
+    public function allCategories(){
+        return $this->category->all();
+    }
 
 }
 
