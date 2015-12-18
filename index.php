@@ -1,4 +1,4 @@
-<?php include_once("includes/App/User.php") ?>
+<?php include_once("includes/DB/Controller.php") ?>
 <?php include_once("includes/Files/Upload.php") ?>
 <?php include_once("includes/layout/header.php")            // HTML header ?>
 <?php include_once("includes/layout/nav.php")               // Navigation  ?>
@@ -6,13 +6,14 @@
 
 <?php
 
-    $user = new User();
-    $user->getUser();
+
+    $controller = new Controller();
+
 
     if(isset($_POST['uploadBtn'])){
 
         $uploadErrors = array();
-        $category;
+        $category = "";
         // Get input from form
         if(isset($_POST['category']) && $_POST['category'] == ""){
             $uploadErrors[] = "Category";
@@ -37,7 +38,7 @@
                 }
             }else{
                 // Store in DB
-
+                $controller->addCategory($category);
             }
         }
     }

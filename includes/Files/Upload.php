@@ -87,8 +87,10 @@ class Upload{
         if($this->isImage() && $this->allowdExt() && $this->fileExists() ){
             if(!$this->moveFile()){
                 $this->errors[]  = "Could not move file to folder...";
+                return false;
             }else{
                 echo "File moved";
+                return true;
             }
         }
     }
