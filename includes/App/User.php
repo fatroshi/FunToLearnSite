@@ -1,6 +1,6 @@
 <?php
 
-include_once "DB.php";
+include_once "includes/App/Database.php";
 
 class User extends Database {
 
@@ -12,16 +12,19 @@ class User extends Database {
 
     public function getUser(){
 
-        $sql = "SELECT * FROM users";
-        $result = $this->connection->query($sql) or die($this->connection->error);
+        if($this->connection != null){
 
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "id: " . $row["id"]. " - Name: " . $row["username"]. " " . $row["email"]. "<br>";
+            $sql = "SELECT * FROM users";
+            $result = $this->connection->query($sql) or die($this->connection->error);
+
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    echo "id: " . $row["id"]. " - Name: " . $row["username"]. " " . $row["email"]. "<br>";
+                }
+            } else {
+                echo "0 results";
             }
-        } else {
-            echo "0 results";
         }
     }
 }

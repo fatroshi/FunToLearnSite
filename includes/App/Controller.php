@@ -1,7 +1,6 @@
 
 <?php
 
-include_once "DB.php";
 
 /**
  * Created by PhpStorm.
