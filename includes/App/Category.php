@@ -1,6 +1,6 @@
 <?php
 
-include_once "includes/db/Category.php";
+include_once "DB.php";
 
 class Category extends Database{
 

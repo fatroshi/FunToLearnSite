@@ -1,4 +1,4 @@
-<?php include_once("includes/db/User.php") ?>
+<?php include_once("includes/App/User.php") ?>
 <?php include_once("includes/Files/Upload.php") ?>
 <?php include_once("includes/layout/header.php")            // HTML header ?>
 <?php include_once("includes/layout/nav.php")               // Navigation  ?>

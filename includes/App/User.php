@@ -1,6 +1,6 @@
 <?php
 
-include_once("includes/db/Database.php");
+include_once "DB.php";
 
 class User extends Database {
 
