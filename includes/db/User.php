@@ -4,10 +4,16 @@ include_once("includes/db/Database.php");
 
 class User extends Database {
 
+    private $connection;
+
+    function __construct() {
+        $this->connection = parent::getConnection();
+    }
+
     public function getUser(){
-        $conn = parent::getConnection();
+
         $sql = "SELECT * FROM users";
-        $result = $conn->query($sql) or die($conn->error);
+        $result = $this->connection->query($sql) or die($this->connection->error);
 
         if ($result->num_rows > 0) {
             // output data of each row

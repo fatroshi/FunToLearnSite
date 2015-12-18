@@ -35,6 +35,9 @@
                 foreach($upload->errors() as $error){
                     echo $error . " <BR/>";
                 }
+            }else{
+                // Store in DB
+
             }
         }
     }
