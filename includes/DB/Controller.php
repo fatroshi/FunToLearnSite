@@ -64,6 +64,12 @@ class Controller {
     public function getAllItems(){
         return $this->category->getAllItems();
     }
+
+    public function var_dump($array){
+        echo "<pre>";
+        print_r($array); // or var_dump($data);
+        echo "</pre>";
+    }
 }
 
 ?>

@@ -92,10 +92,15 @@ class Category extends Database{
 
     public function getAllItems(){
         $items = array();
-        $sql = "SELECT * FROM items";
+        $sql = "SELECT * FROM categories";
         $result = $this->connection->query($sql) or die($this->connection->error);
         while($row = $result->fetch_assoc()) {
-            $items[]= array ($row["id"],$row['imgName'],$row['itemName'],$row['categoryId']);
+
+            $sql = "SELECT * FROM items WHERE categoryId={$row['id']}";
+            $itemResult = $this->connection->query($sql) or die($this->connection->error);
+            while($item = $itemResult->fetch_assoc()) {
+                $items[] = array($row['id'],$row['categoryName'],$item['imgName'],$item['itemName']);
+            }
 
         }
         return $items;

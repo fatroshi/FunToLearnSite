@@ -102,9 +102,7 @@ if(isset($_POST['uploadBtn'])){
         }
 
         echo "<hr>";
-    echo "<pre>";
-    print_r($items); // or var_dump($data);
-    echo "</pre>";
+
     ?>
 
 </div><!-- /.container -->
