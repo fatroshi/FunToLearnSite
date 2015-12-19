@@ -14,12 +14,6 @@
         $imgName                =  $item[2];
         $itemName               =  $item[3];
 
-        //<Cube currency="USD" rate="1.0864"/>
-
-        echo "Category Id: " . $categoryId . "<BR>";
-        echo "Category name: " . $categoryName  . "<BR>";
-        echo "Item name: " . $itemName  . "<BR>";
-        echo "Image: " . $imgName    . "<BR>";
         echo "<item catId='$categoryId' catName='$categoryName' imgName='$imgName' itemName='$itemName'>";
     }
     ?>
