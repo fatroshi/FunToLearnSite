@@ -13,7 +13,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="category.php">Create Category</a></li>
-                <li><a href="items.php">Add items</a></li>
+                <li><a href="app.php">Add items</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

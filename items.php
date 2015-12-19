@@ -6,6 +6,12 @@
 <?php
 $controller = new Controller();
 
+if(isset($_GET['delete']) && is_numeric($_GET['delete'])){
+
+    $item = $controller->getItem($_GET['delete']);
+    unlink("uploads/{$item['categoryId']}/{$item['imgName']}");
+    $controller->delete($_GET['delete'],"items");
+}
 
 if(isset($_POST['uploadBtn'])){
     $uploadErrors = array();
@@ -77,9 +83,29 @@ if(isset($_POST['uploadBtn'])){
             <br>
             <input type="submit" value="Upload" name="uploadBtn">
         </form>
-
-
     </div>
+
+    <hr>
+    <?php
+        if(isset($_GET['cat']) && is_numeric($_GET['cat'])){
+            $items = $controller->getCategoryItems($_GET['cat']);
+            foreach($items as $item){
+                $id         =  $item[0];
+                $img        =  $item[1];
+                $name       =  $item[2];
+                $categoryId = $item[3];
+
+                echo "<img src='uploads/{$categoryId}/{$img}' class=\"img-thumbnail\" alt=\"{$name}\" width=\"300\">";
+                echo "<a href='?delete={$id}' class='alert'>Delete</a>";
+                echo "<BR>";
+            }
+        }
+
+        echo "<hr>";
+    echo "<pre>";
+    print_r($items); // or var_dump($data);
+    echo "</pre>";
+    ?>
 
 </div><!-- /.container -->
 

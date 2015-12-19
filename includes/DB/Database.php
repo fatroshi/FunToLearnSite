@@ -29,8 +29,10 @@ class Database
 
         if ($this->connection->query($sql) === TRUE) {
             echo "Record deleted successfully";
+            return true;
         } else {
             echo "Error deleting record: " . $this->connection->error;
+            return false;
         }
     }
 

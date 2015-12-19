@@ -86,7 +86,7 @@ class Upload{
     }
 
     public function upload(){
-        if($this->isImage() && $this->allowdExt() && $this->fileExists() ){
+        if($this->isImage() && $this->allowdExt()){
             if(!$this->moveFile()){
                 $this->errors[]  = "Could not move file to folder...";
                 return false;

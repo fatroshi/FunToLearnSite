@@ -35,6 +35,10 @@ class Controller {
         $this->category->addItem($img,$itemName,$categoryId);
     }
 
+    public function getItem($id){
+        return $this->category->getItem($id);
+    }
+
     public function delete($id, $table){
         $this->database->delete($id,$table);
     }
@@ -50,9 +54,16 @@ class Controller {
     }
 
     public function allCategories(){
-        return $this->category->all();
+        return $this->category->allCategories();
     }
 
+    public function getCategoryItems($categoryId){
+        return $this->category->allItems($categoryId);
+    }
+
+    public function getAllItems(){
+        return $this->category->getAllItems();
+    }
 }
 
 ?>
