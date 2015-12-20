@@ -13,8 +13,6 @@
     <div class="starter-template">
         <h1>Upload</h1>
 
-
-
     </div>
 
 </div><!-- /.container -->
