@@ -96,6 +96,7 @@ if(isset($_POST['uploadBtn'])){
                 $categoryId = $item[3];
 
                 echo "<img src='uploads/{$categoryId}/{$img}' class=\"img-thumbnail\" alt=\"{$name}\" width=\"300\">";
+                echo "<span class='alert'>{$name}</span> | ";
                 echo "<a href='?delete={$id}' class='alert'>Delete</a>";
                 echo "<BR>";
             }
