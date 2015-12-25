@@ -24,6 +24,18 @@ class User extends Database {
             echo "0 results";
         }
     }
+
+    public function login($username, $password){
+
+        $password = md5($password);
+        $sql = "SELECT * FROM users WHERE username='{$username}' AND password='{$password}' LIMIT 1 ";
+        $result = $this->connection->query($sql) or die($this->connection->error);
+        if ($result->num_rows == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 ?>

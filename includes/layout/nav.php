@@ -14,6 +14,15 @@
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="category.php">Categories</a></li>
                 <li><a href="app.php">Parser</a></li>
+                <?php
+
+                    if(isset($_SESSION['user'])){
+                        echo "<li><a href='?logout'>Log out</a></li>";
+                    }
+
+                ?>
+
+
             </ul>
         </div><!--/.nav-collapse -->
     </div>

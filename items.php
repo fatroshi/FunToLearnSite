@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+if(isset($_GET['logout']) && isset($_SESSION['user'])){
+    session_destroy();
+
+}
+
+if(isset($_SESSION['user'])){
+    header("Location: category.php");
+}else{
+    header("Location: index.php");
+}
+?>
 <?php include_once("includes/DB/Controller.php")                           ?>
 <?php include_once("includes/Files/Upload.php")                            ?>
 <?php include_once("includes/layout/header.php")            // HTML header ?>

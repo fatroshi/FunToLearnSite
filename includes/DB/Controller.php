@@ -65,10 +65,19 @@ class Controller {
         return $this->category->getAllItems();
     }
 
+    public function getAllItemsJSON(){
+        return $this->category->getAllItemsJSON();
+    }
+
     public function var_dump($array){
         echo "<pre>";
         print_r($array); // or var_dump($data);
         echo "</pre>";
+    }
+
+    public function login($username, $password){
+
+        return $this->user->login($username,$password);
     }
 }
 

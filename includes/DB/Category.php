@@ -106,6 +106,24 @@ class Category extends Database{
         return $items;
     }
 
+    public function getAllItemsJSON(){
+
+        $sql = "SELECT * FROM categories";
+        $result = $this->connection->query($sql) or die($this->connection->error);
+        $items = array();
+        while($row = $result->fetch_assoc()) {
+
+            $sql = "SELECT * FROM items WHERE categoryId={$row['id']}";
+            $itemResult = $this->connection->query($sql) or die($this->connection->error);
+            while($item = $itemResult->fetch_assoc()) {
+                $ar = array("categoryId" => $row['id'],"categoryName" => $row['categoryName'],"imgName" => $item['imgName'],"itemName" => $item['itemName']);
+                array_push($items,$ar);
+            }
+
+        }
+        return json_encode($items);
+    }
+
 }
 
 
