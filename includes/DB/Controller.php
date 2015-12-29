@@ -28,7 +28,7 @@ class Controller {
     }
 
     public function addCategory($categoryName){
-        $this->category->addCategory($categoryName);
+        return $this->category->addCategory($categoryName);
     }
 
     public function addItem($img,$itemName,$categoryId){

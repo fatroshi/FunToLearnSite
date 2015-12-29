@@ -1,12 +1,14 @@
 <?php
     session_start();
-    if(isset($_GET['logout']) && isset($_SESSION['user'])){
+    if(isset($_SESSION['user'])){
+        echo "Logged in user" . $_SESSION['user'];
+        header("Location: category.php");
+    }
+    if(isset($_GET['logout'])){
         session_unset();
     }
 
-    if(isset($_SESSION['user'])){
-        header("Location: category.php");
-    }
+
 ?>
 
 <?php include_once("includes/DB/Controller.php") ?>
@@ -19,8 +21,7 @@
     $controller = new Controller();
 
 
-
-
+    //echo date("Y-m-d H:m:s");
     if(isset($_POST['loginBtn'])){
 
         $errors = array();

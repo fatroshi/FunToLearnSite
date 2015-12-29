@@ -1,15 +1,10 @@
 <?php
 session_start();
-
-if(isset($_GET['logout']) && isset($_SESSION['user'])){
+if(isset($_GET['logout'])){
     session_unset();
-
 }
-
 if(!isset($_SESSION['user'])){
     header("Location: index.php");
-}else{
-
 }
 ?>
 <?php include_once("includes/DB/Controller.php")                           ?>
@@ -43,10 +38,11 @@ if(isset($_POST['submit'])){
         //Firest check if the category exists
         if($controller->addCategory($name)){
             // Success
+            echo "<span class='text-success'>Category {$name} created</span>";
         }else{
             // Fail
+            echo "<span class='text-danger'>Category {$name} could not be created</span>";
         }
-
     }
 }
 ?>

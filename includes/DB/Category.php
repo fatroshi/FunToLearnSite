@@ -15,7 +15,6 @@ class Category extends Database{
 
             $sql = "INSERT INTO categories (categoryName)VALUES ('{$categoryName}')";
             if (mysqli_query($this->connection, $sql)) {
-                echo "New record created successfully";
                 return true;
             } else {
                 echo "Error: " . $sql . "<br>" . mysqli_error($this->connection);
@@ -62,10 +61,10 @@ class Category extends Database{
         if(!$this->itemExists($itemName)){
             $sql = "INSERT INTO items (imgName,itemName,categoryId) VALUES ('{$img}','{$itemName}','{$categoryId}')";
             if (mysqli_query($this->connection, $sql)) {
-                echo "New record created successfully";
+                echo "<span class='text-success'>New record created successfully</span>";
                 return true;
             } else {
-                echo "Error: " . $sql . "<br>" . mysqli_error($this->connection);
+                echo "<span class='text-danger>" . "Error: " . $sql . "<br>" . mysqli_error($this->connection) . "</span>";
                 return false;
             }
         }
@@ -116,7 +115,7 @@ class Category extends Database{
             $sql = "SELECT * FROM items WHERE categoryId={$row['id']}";
             $itemResult = $this->connection->query($sql) or die($this->connection->error);
             while($item = $itemResult->fetch_assoc()) {
-                $ar = array("categoryId" => $row['id'],"categoryName" => $row['categoryName'],"imgName" => $item['imgName'],"itemName" => $item['itemName']);
+                $ar = array("categoryId" => $row['id'],"categoryName" => $row['categoryName'],"imgName" => $item['imgName'],"itemName" => $item['itemName'], "uploadFolder" => "uploads");
                 array_push($items,$ar);
             }
 

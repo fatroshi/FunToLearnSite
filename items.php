@@ -1,14 +1,9 @@
 <?php
 session_start();
-
-if(isset($_GET['logout']) && isset($_SESSION['user'])){
-    session_destroy();
-
+if(isset($_GET['logout'])){
+    session_unset();
 }
-
-if(isset($_SESSION['user'])){
-    header("Location: category.php");
-}else{
+if(!isset($_SESSION['user'])){
     header("Location: index.php");
 }
 ?>

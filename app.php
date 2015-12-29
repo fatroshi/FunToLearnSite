@@ -1,6 +1,4 @@
 <?php include_once("includes/DB/Controller.php") ?>
-
-
     <?php
     $controller = new Controller();
     $items = $controller->getAllItemsJSON();
@@ -18,7 +16,7 @@
 
     $controller->var_dump($items);
 
-    $myfile = fopen("app.json", "w") or die("Unable to open file!");
+    $myfile = fopen("app.json", "w") or die ("Unable to open file!");
     $txt = "";
     fwrite($myfile,$items);
     fclose($myfile);
