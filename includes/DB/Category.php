@@ -60,13 +60,12 @@ class Category extends Database{
     public function addItem($img,$itemName,$categoryId){
         if(!$this->itemExists($itemName)){
 
-            $date = date("Y-m-d H:i:s");
-            $sql = "INSERT INTO items (imgName,itemName,categoryId) VALUES ('{$img}','{$itemName}','{$categoryId}','{$date}'";
+            $sql = "INSERT INTO items (imgName,itemName,categoryId,published) VALUES ('{$img}','{$itemName}','{$categoryId}', CURRENT_TIMESTAMP )";
             if (mysqli_query($this->connection, $sql)) {
                 echo "<span class='text-success'>New record created successfully</span>";
                 return true;
             } else {
-                echo "<span class='text-danger>" . "Error: " . $sql . "<br>" . mysqli_error($this->connection) . "</span>";
+                echo "<span class='text-danger>" . "<hr> Error: " . $sql . "<br>" . mysqli_error($this->connection) . "</span>";
                 return false;
             }
         }
@@ -120,7 +119,7 @@ class Category extends Database{
                 $ar = array(
                             "categoryId" => $row['id'], "itemId" => $item['id'], "categoryName" => $row['categoryName'],
                             "imgName" => $item['imgName'],"itemName" => $item['itemName'], "uploadFolder" => "uploads",
-                            "date" => $item['date']
+                            "date" => $item['published']
                             );
                 array_push($items,$ar);
             }

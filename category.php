@@ -75,6 +75,6 @@ if(isset($_POST['submit'])){
             ?>
         </ul>
 
-    </div><!-- /.container -->
+    </div><!-- container -->
 
 <?php include_once("includes/layout/footer.php")            // HTML Footer ?>
