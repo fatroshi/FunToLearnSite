@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="12eccdd0-3652-4f51-a8bc-1920fc565f79" name="Fun.neodesign.se" url="http://ftp.fun.neodesign.se">
+        <fileTransfer host="ftp.fun.neodesign.se" port="21" rootFolder="/fun.neodesign.se/public_html" password="dfecdfeadfd8dfc2dfcbdfcedf9bdf9b" username="101047-master">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

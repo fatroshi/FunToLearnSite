@@ -59,7 +59,9 @@ class Category extends Database{
 
     public function addItem($img,$itemName,$categoryId){
         if(!$this->itemExists($itemName)){
-            $sql = "INSERT INTO items (imgName,itemName,categoryId) VALUES ('{$img}','{$itemName}','{$categoryId}')";
+
+            $date = date("Y-m-d H:i:s");
+            $sql = "INSERT INTO items (imgName,itemName,categoryId) VALUES ('{$img}','{$itemName}','{$categoryId}','{$date}'";
             if (mysqli_query($this->connection, $sql)) {
                 echo "<span class='text-success'>New record created successfully</span>";
                 return true;
@@ -115,7 +117,11 @@ class Category extends Database{
             $sql = "SELECT * FROM items WHERE categoryId={$row['id']}";
             $itemResult = $this->connection->query($sql) or die($this->connection->error);
             while($item = $itemResult->fetch_assoc()) {
-                $ar = array("categoryId" => $row['id'],"categoryName" => $row['categoryName'],"imgName" => $item['imgName'],"itemName" => $item['itemName'], "uploadFolder" => "uploads");
+                $ar = array(
+                            "categoryId" => $row['id'], "itemId" => $item['id'], "categoryName" => $row['categoryName'],
+                            "imgName" => $item['imgName'],"itemName" => $item['itemName'], "uploadFolder" => "uploads",
+                            "date" => $item['date']
+                            );
                 array_push($items,$ar);
             }
 
