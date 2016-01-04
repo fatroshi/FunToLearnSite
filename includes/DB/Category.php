@@ -119,7 +119,7 @@ class Category extends Database{
                 $ar = array(
                             "categoryId" => $row['id'], "itemId" => $item['id'], "categoryName" => $row['categoryName'],
                             "imgName" => $item['imgName'],"itemName" => $item['itemName'], "uploadFolder" => "uploads",
-                            "date" => $item['published']
+                            "published" => $item['published']
                             );
                 array_push($items,$ar);
             }

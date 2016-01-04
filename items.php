@@ -46,6 +46,7 @@ if(isset($_POST['uploadBtn'])){
         // If the upload was not successful display errors for user
         if(!$upload->upload()){
             foreach($upload->errors() as $error){
+                echo "<hr>";
                 echo $error . " <BR/>";
             }
         }else{
