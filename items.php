@@ -15,13 +15,15 @@ if(!isset($_SESSION['user'])){
 <?php
 $controller = new Controller();
 
+// Delete item
 if(isset($_GET['delete']) && is_numeric($_GET['delete'])){
-
     $item = $controller->getItem($_GET['delete']);
     unlink("uploads/{$item['categoryId']}/{$item['imgName']}");
     $controller->delete($_GET['delete'],"items");
 }
 
+
+// Upload a new item
 if(isset($_POST['uploadBtn'])){
     $uploadErrors = array();
     $category;
@@ -78,13 +80,10 @@ if(isset($_POST['uploadBtn'])){
                 }
             ?>
             </select>
-
             <br>
             <br>
-
             Name of the item:
             <input type="text" name="name">
-
             <br>
             <br>
             Select image to upload:
@@ -111,12 +110,7 @@ if(isset($_POST['uploadBtn'])){
                 echo "<BR>";
             }
         }
-
         echo "<hr>";
-
     ?>
-
 </div><!-- /.container -->
-
-
 <?php include_once("includes/layout/footer.php")            // HTML Footer ?>

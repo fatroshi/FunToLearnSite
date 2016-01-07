@@ -7,37 +7,27 @@
     if(isset($_GET['logout'])){
         session_unset();
     }
-
-
 ?>
-
 <?php include_once("includes/DB/Controller.php") ?>
 <?php include_once("includes/Files/Upload.php") ?>
 <?php include_once("includes/layout/header.php")            // HTML header ?>
 <?php include_once("includes/layout/nav.php")               // Navigation  ?>
-
-
 <?php
     $controller = new Controller();
 
-
-    //echo date("Y-m-d H:m:s");
+    // Process login
     if(isset($_POST['loginBtn'])){
-
         $errors = array();
-
         if(isset($_POST['username']) && $_POST['username'] !=""){
             $username = $_POST['username'];
         }else{
             $errors[] = "Username";
         }
-
         if(isset($_POST['password']) && $_POST['password'] !=""){
             $password = $_POST['password'];
         }else{
             $errors[] = "Password";
         }
-
         if(count($errors) == 0){
             echo "No errors";
 
@@ -54,24 +44,17 @@
                 echo $error . "<BR/>";
             }
         }
-
     }
 
 ?>
-
 <div class="container">
-
     <div class="starter-template">
-
         <?php
             if(isset($message)){
                 echo "<h2>$message</h2>";
             }
-
         ?>
-
         <h1>Login</h1>
-
         <form action="" method="post" enctype="multipart/form-data">
             <input type="text" name="username" placeholder="Username">
             <input type="password" name="password" placeholder="Password">
@@ -79,9 +62,6 @@
         </form>
 
     </div>
-
 </div><!-- /.container -->
-
-
 <?php include_once("includes/layout/footer.php")            // HTML Footer ?>
 

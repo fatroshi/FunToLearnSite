@@ -1,4 +1,7 @@
 <?php
+/**
+ * Class is used for login the user and getting user info from the database
+ */
 
 include_once("includes/DB/Database.php");
 
@@ -10,6 +13,9 @@ class User extends Database {
         $this->connection = $connection;
     }
 
+    /**
+     * Get the logged in user
+     */
     public function getUser(){
 
         $sql = "SELECT * FROM users";
@@ -25,6 +31,12 @@ class User extends Database {
         }
     }
 
+    /**
+     * Check if the user exists in the database.
+     * @param $username
+     * @param $password
+     * @return bool true if the username and password exists.
+     */
     public function login($username, $password){
 
         $password = md5($password);

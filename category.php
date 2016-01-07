@@ -15,27 +15,24 @@ if(!isset($_SESSION['user'])){
 <?php
 $controller = new Controller();
 
-
-
+// Delete category
 if(isset($_GET['delete']) && is_numeric($_GET['delete'])){
     $controller->delete($_GET['delete'],"categories");
 }
 
 
+// Create new category
 if(isset($_POST['submit'])){
-
     $uploadErrors = array();
     $category = "";
-    // Get input from form
-
     if(isset($_POST['name']) && $_POST['name'] == ""){
         $uploadErrors[] = "name";
     }else{
         $name = $_POST['name'];
     }
-
+    // Check if we had any errors in the form
     if(count($uploadErrors) == 0){
-        //Firest check if the category exists
+        // Add category to the database
         if($controller->addCategory($name)){
             // Success
             echo "<span class='text-success'>Category {$name} created</span>";
@@ -46,7 +43,6 @@ if(isset($_POST['submit'])){
     }
 }
 ?>
-
     <div class="container">
         <div class="starter-template">
             <h1>Create a new category</h1>
